@@ -1,6 +1,7 @@
-namespace Pokys.Models.Domain;
+// using Microsoft.EntityFrameworkCore;
+namespace Pokys.Models.Domain
 {
-  class Employee
+  public class Employee
   {
     public Guid Id { get; set;}
     public string Name { get; set;}
