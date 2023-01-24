@@ -16585,6 +16585,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/Momo/Desktop/Pokys/Views/Employees/Add.cshtml",
+      "TargetPath": "Views\\Employees\\Add.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/Momo/Desktop/Pokys/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
