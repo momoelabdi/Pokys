@@ -58,10 +58,28 @@ namespace Pokys.Controllers
           Departement = employee.Departement,
           DateOfBirth = employee.DateOfBirth
         };
-        return View(viewModel);
+        return await Task.Run(() => View("View", viewModel));
       }
+      return View("index");
+    }
+    [HttpPost]
+    public async Task<IActionResult> View(UpdateEmployeeViewModel model)
+    {
+      var employee = await mvcDemoDbContext.Employees.FindAsync(model.Id);
+        if (employee != null)
+        {
+            employee.Name = model.Name;
+            employee.Email = model.Email;
+            employee.Salary = model.Salary;
+            employee.Departement = model.Departement;
+            employee.DateOfBirth = model.DateOfBirth;
+            await mvcDemoDbContext.SaveChangesAsync();
+
+          return RedirectToAction("Index");
+        }
         return View("index");
     }
+
   }
 
 }
