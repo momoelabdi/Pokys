@@ -3,16 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 using Pokys.Models;
 using Pokys.Data;
 using Pokys.Models.Domain;
+using Microsoft.EntityFrameworkCore;
 namespace Pokys.Controllers
 {
   public class EmployeesController : Controller
   {
-  private readonly MVCDemoDbContext mvcDemoDbContext;
+    private readonly MVCDemoDbContext mvcDemoDbContext;
     public EmployeesController(MVCDemoDbContext mvcDemoDbContext)
     {
       this.mvcDemoDbContext = mvcDemoDbContext;
     }
-
+    [HttpGet]
+    public async Task<IActionResult> Index()
+    {
+      var employees = await mvcDemoDbContext.Employees.ToListAsync();
+      return View(employees);
+    }
     [HttpGet]
     public IActionResult Add()
     {
@@ -33,9 +39,29 @@ namespace Pokys.Controllers
       };
       await mvcDemoDbContext.Employees.AddAsync(employee);
       await mvcDemoDbContext.SaveChangesAsync();
-      return RedirectToAction("Add");
+      return RedirectToAction("Index");
     }
 
+    [HttpGet]
+    public async Task<IActionResult> View(Guid id)
+    {
+      var employee = await mvcDemoDbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+
+      if (employee != null)
+      {
+        var viewModel = new UpdateEmployeeViewModel()
+        {
+          Id = employee.Id,
+          Name = employee.Name,
+          Email = employee.Email,
+          Salary = employee.Salary,
+          Departement = employee.Departement,
+          DateOfBirth = employee.DateOfBirth
+        };
+        return View(viewModel);
+      }
+        return View("index");
+    }
   }
 
 }

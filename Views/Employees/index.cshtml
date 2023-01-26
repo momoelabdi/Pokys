@@ -1,0 +1,31 @@
+@model List<Pokys.Models.Domain.Employee>
+
+  <h1>Employeee</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Salary</th>
+      <th scope="col">date of birth</th>
+      <th scope="col">Depatement</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var employee in Model)
+    {
+    <tr>
+      <td >@employee.Id</td>
+      <td>@employee.Name</td>
+      <td>@employee.Email</td>
+      <td>@employee.Salary</td>
+      <td>@employee.DateOfBirth.ToString("dd.MM.yyyy")</td>
+      <td>@employee.Departement</td>
+      <td><a href="Employees/View/@employee.Id">View</a></td>
+    </tr>
+    }
+  </tbody>
+</table>

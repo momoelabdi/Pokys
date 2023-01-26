@@ -16565,6 +16565,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/Momo/Desktop/Pokys/Views/Employees/index.cshtml",
+      "TargetPath": "Views\\Employees\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/Momo/Desktop/Pokys/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -16577,6 +16582,11 @@
     {
       "FilePath": "/Users/Momo/Desktop/Pokys/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/Momo/Desktop/Pokys/Views/Employees/View.cshtml",
+      "TargetPath": "Views\\Employees\\View.cshtml",
       "FileKind": "mvc"
     },
     {
